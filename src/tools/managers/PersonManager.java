@@ -44,6 +44,10 @@ public class PersonManager {
         }
     }
 
+    public Person createPerson(String teacher) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public static class createPerson extends Person {
 
         public createPerson() {

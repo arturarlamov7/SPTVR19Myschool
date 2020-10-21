@@ -5,7 +5,7 @@
  */
 package sptvr19myschool;
 
-import entity.Teacher;
+import entity.teacher;
 import tools.managers.PersonManager;
 import entity.Person;
 import java.util.ArrayList;
@@ -54,9 +54,9 @@ class App {
                     break;                   
                 case "3":
                     System.out.println("----- Добавить учителя -----");
-                    Person person = new PersonManager.createPerson();
-                    PersonManager.addPersonToArray(teacher, teachers);
-                    PersonManager.printListPerson();
+                    Person teacher = personManager.createPerson("TEACHER");
+                    personManager.addPersonToList(teacher, listPersons);
+                    
                     
                     
                     
@@ -93,7 +93,7 @@ class App {
                 
             }
                     
-        }
+    }
         
         
     }

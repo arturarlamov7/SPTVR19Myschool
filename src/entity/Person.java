@@ -18,6 +18,8 @@ public class Person {
     public Person() {       
     }
     
+    private Person[] teachers;
+    
     public Person(String firstname, String lastname, String phone, String role) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -68,7 +70,7 @@ public class Person {
     }
 
     public void setphone(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
   
 }
