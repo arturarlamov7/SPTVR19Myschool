@@ -24,10 +24,6 @@ public class Person {
         this.phone = phone;
         this.role = role;
     }    
-
-    public Person(String ivan) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public String getfirstName() {
         return firstname;
@@ -70,5 +66,9 @@ public class Person {
                 + ", role" + 
                 + '}';
     }
-    
+
+    public void setphone(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+  
 }

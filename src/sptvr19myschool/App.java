@@ -5,10 +5,11 @@
  */
 package sptvr19myschool;
 
+import entity.Teacher;
 import tools.managers.PersonManager;
 import entity.Person;
 import java.util.ArrayList;
-import static java.util.Collections.list;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,7 @@ import java.util.Scanner;
 class App {
     private Scanner scanner = new Scanner(System.in);
     private List<Person> ListPersons = new ArrayList<>();
+    private List<Teacher> ListPersons = new ArrayList<>();
     public void run() {
         System.out.println("----- Моя школа -----");
         boolean repeat = true;
@@ -37,35 +39,53 @@ class App {
             System.out.println("Выберите задачу: ");
             String task = scanner.nextLine();
             switch(task) {
-                case "1":
+                case "0":
                     System.out.println("---- Конец программы ----");
                     repeat = false;                   
-                    break;
-                case "2":
+                    break;                  
+                case "1":
+                    System.out.println("----- Добавить ученика -----");
                     PersonManager personManager = new PersonManager();
-                    Person student personManager.createPerson();
-                    break;
+                    Person student = personManager.createPerson();
+                    break;                           
+                case "2":
+                    System.out.println("----- Список учеников -----");
+                    PersonManager.printListPerson();
+                    break;                   
                 case "3":
+                    System.out.println("----- Добавить учителя -----");
+                    Person person = new PersonManager.createPerson();
+                    PersonManager.addPersonToArray(teacher, teachers);
+                    PersonManager.printListPerson();
+                    
+                    
                     
                     break;
+                    
                 case "4":
                     
                     break;
+                    
                 case "5":
                     
-                    break; 
+                    break;                   
+                    
                 case "6":
                     
                     break;
+                    
                 case "7":
                     
                     break;
+                    
                 case "8":
                     
-                    break; 
+                    break;
+                    
                 case "9":
                     
                     break;
+                
                 case "10":
                     
                     break;
@@ -74,12 +94,9 @@ class App {
             }
                     
         }
-
-        
         
         
     }
-
 
 
     

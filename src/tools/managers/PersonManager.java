@@ -13,7 +13,11 @@ import java.util.Scanner;
  * @author user
  */
 public class PersonManager {
-    public Person createBook() {
+
+    public static void addPersonToArray() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public Person createPerson() {
         Person person = new Person();
         Scanner scanner = new Scanner(System.in);
         System.out.println("--- Добавить ученика ---");
@@ -33,9 +37,17 @@ public class PersonManager {
             }
         }
     }
-
-    public void createPerson() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
     
+    public static void printListPerson() {
+        for (int i = 0; i < 10; i++) {
+            
+        }
+    }
+
+    public static class createPerson extends Person {
+
+        public createPerson() {
+        }
+    }
+    
+}
