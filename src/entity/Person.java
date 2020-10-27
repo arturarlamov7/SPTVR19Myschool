@@ -5,44 +5,52 @@
  */
 package entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author user
  */
-public class Person {
-    String firstname;
-    String lastname;
-    String phone;
-    String role;
-    
-    public Person() {       
+public class Person implements Serializable{
+    private String firstname;
+    private String lastname;
+    private String phone;
+    private String role;
+
+    public Person() {
     }
-    
-    private Person[] teachers;
-    
+
     public Person(String firstname, String lastname, String phone, String role) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
         this.role = role;
-    }    
-    
-    public String getfirstName() {
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setfirstName(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public String getlastname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setlastname(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-    
+
     public String getPhone() {
         return phone;
     }
@@ -50,27 +58,15 @@ public class Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-    public String getRole() {
-        return role;       
-    }
-    
-    public void setRole(String role) {
-        this.role = role;
-    }
-    
+
     @Override
     public String toString() {
         return "Person{" 
                 + "firstname=" + firstname 
                 + ", lastname=" + lastname 
                 + ", phone=" + phone 
-                + ", role" + 
+                + ", role=" + role 
                 + '}';
     }
-
-    public void setphone(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-  
+    
 }

@@ -5,12 +5,14 @@
  */
 package sptvr19myschool;
 
-import entity.teacher;
-import tools.managers.PersonManager;
 import entity.Person;
+import entity.Subject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import tools.manager.PersonManager;
+import tools.manager.SubjectManager;
+import tools.savers.SaveToFile;
 
 /**
  *
@@ -18,86 +20,89 @@ import java.util.Scanner;
  */
 class App {
     private Scanner scanner = new Scanner(System.in);
-    private List<Person> ListPersons = new ArrayList<>();
-    private List<Teacher> ListPersons = new ArrayList<>();
-    public void run() {
-        System.out.println("----- Моя школа -----");
+    
+    private  List<Person> listPersons = new ArrayList<>(); 
+    private  List<Subject> listSubjects = new ArrayList<>(); 
+    
+    private PersonManager personManager = new PersonManager();
+    private SubjectManager subjectManager = new SubjectManager();
+    private Subject subject;
+
+    public App() {
+        SaveToFile saveToFile = new SaveToFile();
+        this.listPersons = saveToFile.loadFromFile("listPersons");
+        this.listSubjects = saveToFile.loadFromFile("listSubjects");
+    }
+    
+    public void run(){
+        System.out.println("--- Моя школа ---");
         boolean repeat = true;
-        do {            
-            System.out.println("Задачи: ");
-            System.out.println("0. Выйти из программы");
+        do{
+            System.out.println("Задачи:");
+            System.out.println("0. Выход из программы");
             System.out.println("1. Добавить ученика");
             System.out.println("2. Список учеников");
             System.out.println("3. Добавить учителя");
             System.out.println("4. Список учителей");
             System.out.println("5. Добавить предмет");
             System.out.println("6. Список предметов");
-            System.out.println("7. Поставить оценку");
-            System.out.println("8. Список оценок");
+            System.out.println("7. Выставить оценку");
+            System.out.println("8. Оценки ученика");
             System.out.println("9. Оценки по предмету");
             System.out.println("10. Изменить оценку");
-            System.out.println("Выберите задачу: ");
+            System.out.println("Выберите задачу:");
             String task = scanner.nextLine();
-            switch(task) {
+            switch (task) {
                 case "0":
-                    System.out.println("---- Конец программы ----");
-                    repeat = false;                   
-                    break;                  
+                    System.out.println("Выход из программы");
+                    repeat = false;
+                    break;
                 case "1":
-                    System.out.println("----- Добавить ученика -----");
-                    PersonManager personManager = new PersonManager();
-                    Person student = personManager.createPerson();
-                    break;                           
+                    System.out.println("1. Добавить ученика");
+                    Person student = personManager.createPerson("STUDENT");
+                    personManager.addPersonToList(student, listPersons);
+                    
+                    break;
                 case "2":
-                    System.out.println("----- Список учеников -----");
-                    PersonManager.printListPerson();
-                    break;                   
+                    System.out.println("2. Список учеников");
+                    personManager.printListStudents(listPersons);
+                    break;
                 case "3":
-                    System.out.println("----- Добавить учителя -----");
+                    System.out.println("3. Добавить учителя");
                     Person teacher = personManager.createPerson("TEACHER");
                     personManager.addPersonToList(teacher, listPersons);
-                    
-                    
-                    
-                    
                     break;
-                    
                 case "4":
-                    
+                    System.out.println("4. Список учителей");
+                    personManager.printListTeachers(listPersons);
                     break;
-                    
                 case "5":
-                    
-                    break;                   
-                    
+                    System.out.println("5. Добавить предмет");
+                    subjectManager.addSubjectToList(subject, listSubjects);               
+                    break;
                 case "6":
-                    
+                    System.out.println("6. Список предметов");
+                    subjectManager.printlistSubjects(listSubjects);                                   
                     break;
-                    
                 case "7":
+                    System.out.println("7. Выставить оценку");
                     
                     break;
-                    
                 case "8":
+                    System.out.println("8. Оценки ученика");
                     
                     break;
-                    
                 case "9":
+                    System.out.println("9. Оценки по предмету");
                     
                     break;
-                
                 case "10":
+                    System.out.println("10. Изменить оценку");
                     
                     break;
-                    
-                
+                default:
+                    System.out.println("Нет такой задачи. Выберите из списка.");;
             }
-                    
+        } while(repeat);
     }
-        
-        
-    }
-
-
-    
 }
