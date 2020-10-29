@@ -75,3 +75,5 @@ public class Journal implements Serializable{
     }
     
 }
+
+
